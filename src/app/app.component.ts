@@ -1,13 +1,24 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { ChildComponent } from './child/child.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet,ChildComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
-  title = 'InterCommunicationComponent';
+export class AppComponent 
+{
+
+  receivedData: string = '';
+
+
+  // Method to handle data from the child component
+  handleData(data: string) {
+    this.receivedData = data;
+  }
+
+
 }
